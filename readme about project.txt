@@ -15,6 +15,10 @@
 #7)  Mongoose ----> npm install mongoose
 #8)  Express and dotenv  ------>  npm install express and dotenv
 									npm i express dotenv
+#9) Hashing Password  ----> npm install bcryptjs
+	bcrypt is same as bcryptjs but difference is that bcrypt arises error in production when we deploy our app
+	that's why we use bcryptjs
+
 									
 
   
