@@ -19,6 +19,9 @@
 	bcrypt is same as bcryptjs but difference is that bcrypt arises error in production when we deploy our app
 	that's why we use bcryptjs
 
+
+	1:50:   complete add middleware and function to handle error
+
 									
 
   
