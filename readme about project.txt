@@ -20,7 +20,8 @@
 	that's why we use bcryptjs
 
 
-	1:50:   complete add middleware and function to handle error
+
+
 
 									
 

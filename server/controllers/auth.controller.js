@@ -32,7 +32,7 @@ export const signup = async (req, res, next) => {
     }
     catch (err) {
         // res.status(500).json({ message: error.message })
-        console.log(err.statusCode + "in catch block");
+        //console.log(err.statusCode + "in catch block");
         next(errorHandler(false, err.statusCode, err.message));
     }
 
