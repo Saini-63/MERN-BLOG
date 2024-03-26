@@ -19,6 +19,8 @@
 	bcrypt is same as bcryptjs but difference is that bcrypt arises error in production when we deploy our app
 	that's why we use bcryptjs
 
+<=======  after that we switch from vite to simple react app beacuse in vite the jsx file not import in js so 
+			here we use redux-saga beacuse creatSlice is deprected ===========>
 
 
 

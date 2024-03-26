@@ -1,0 +1,9 @@
+// ADD Sign -Up 
+export const ADD_SIGN_UP_START = 'ADD_SIGN_UP_START';
+export const ADD_SIGN_UP_SUCCESS = 'ADD_SIGN_UP_SUCCESS';
+export const ADD_SIGN_UP_FAILURE = 'ADD_SIGN_UP_FAILURE';
+
+//GET Sign-In
+export const GET_SIGN_IN_START = 'GET_SIGN_IN_START';
+export const GET_SIGN_IN_SUCCESS = 'GET_SIGN_IN_SUCCESS';
+export const GET_SIGN_IN_FAILURE = 'GET_SIGN_IN_FAILURE';
