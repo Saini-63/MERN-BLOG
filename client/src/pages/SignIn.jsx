@@ -1,23 +1,25 @@
 //import React from 'react'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { getSignInFailure, getSignInStart, getSignInSuccess } from './../redux/actions/user.action';
+import { getSignInFailure, getSignInStart } from './../redux/actions/user.action';
 
 
 export default function SignIn() {
 
   const [formData, setFormData] = useState({});
-  // const [errorMessage, setErrorMessage] = useState(null);
-  // const [loading, setLoading] = useState(false);
+
   const loading = useSelector(state => state.loading);
   const errorMessage = useSelector(state => state.error);
+  const currentUser = useSelector(state => state.currentUser);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() })
+
   }
 
   const handleSubmit = async (e) => {
@@ -26,33 +28,23 @@ export default function SignIn() {
       return dispatch(getSignInFailure('Please fill out all fields!'));
     }
     try {
-      // setLoading(true);
-      // setErrorMessage(null);
-      dispatch(getSignInStart());
-      const res = await fetch('http://localhost:8000/auth/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
-
-      let data = await res.json();
-      data.res = res.ok;
-      console.log(data);
-      if (data.success === false) {
-        //  setErrorMessage(data.message);
-        dispatch(getSignInFailure(data.message));
-      }
-      // setLoading(false);
-      if (res.ok) {
-        dispatch(getSignInSuccess(data));
-        navigate('/');
-      }
+      dispatch(getSignInStart(formData));
     } catch (error) {
-      //setErrorMessage(error.message);
-      // console.log(error);
       dispatch(getSignInFailure(error.message));
     }
   }
+
+  useEffect(() => {
+    console.log("useEffect");
+    if (currentUser) {
+      if (currentUser.success === false) {
+        dispatch(getSignInFailure(currentUser.message));
+      }
+      if (currentUser.res) {
+        navigate('/');
+      }
+    }
+  }, [currentUser, dispatch, navigate])
 
   return (
     <div className="min-h-screen mt-20">

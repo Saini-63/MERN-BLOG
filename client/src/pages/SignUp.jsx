@@ -8,16 +8,14 @@ import { addSignUpStart, addSignUpFailure } from '../redux/actions/user.action';
 export default function SignUp() {
 
   const [formData, setFormData] = useState({});
-  // const [errorMessage, setErrorMessage] = useState(null);
-  // const [loading, setLoading] = useState(false);
 
   const loading = useSelector(state => state.loading);
   const errorMessage = useSelector(state => state.error);
   const data = useSelector((state) => { return state.data });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //console.log(errorMessage);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() })
   }
@@ -28,33 +26,8 @@ export default function SignUp() {
       return dispatch(addSignUpFailure('Please fill out all fields!'));
     }
     try {
-      // setLoading(true);
-      // setErrorMessage(null);
-      // dispatch(addSignUpStart());
-      // dispatch(addSignUpFailure('invalid data'));
-      // console.log("innsubmit", errorMessage);
       dispatch(addSignUpStart(formData));
-      //console.log(data);
-      // const res = await fetch('http://localhost:8000/auth/signup', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // })
-      // const dataResponse = await res.json();
-      // dispatch(addSignUpSuccess(dataResponse));
-      // if (data.success === true) {
-      //   //setErrorMessage(data.message);
-      //   dispatch(addSignUpFailure(data.message))
-      // }
-      // else if (data.success === false) {
-      //   dispatch(addSignUpFailure(data.message));
-      // }
-
-      // if (data.res) {
-      //   navigate('/sign-in');
-      // }
     } catch (error) {
-      //setErrorMessage(error.message);
       console.log(error);
     }
   }
@@ -62,7 +35,6 @@ export default function SignUp() {
   useEffect(() => {
     if (data) {
       if (data.success === true) {
-        //setErrorMessage(data.message);
         dispatch(addSignUpFailure(data.message))
       }
       else if (data.success === false) {
@@ -73,7 +45,7 @@ export default function SignUp() {
         navigate('/sign-in');
       }
     }
-  }, [data]);
+  }, [data, dispatch, navigate]);
 
   return (
     <div className="min-h-screen mt-20">

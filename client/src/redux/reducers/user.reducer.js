@@ -21,6 +21,7 @@ export const userReducer = (state = initialState, action) => {
                 currentUser: action.payload,
                 error: null,
                 loading: false,
+                data: null,
             };
         case ADD_SIGN_UP_SUCCESS:
             return {

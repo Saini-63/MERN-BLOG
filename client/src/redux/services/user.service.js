@@ -7,6 +7,11 @@ export async function getUserByAPI(payload) {
 
     let data = await res.json();
     data.res = res.ok;
+    if (res.ok) {
+        data.success = true;
+    } else {
+        data.success = false;
+    }
     return data;
 }
 
