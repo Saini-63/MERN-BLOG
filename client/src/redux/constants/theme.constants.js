@@ -1,0 +1,4 @@
+// ADD Theme  
+export const ADD_THEME_START = 'ADD_THEME_START';
+export const ADD_THEME_SUCCESS = 'ADD_THEME_SUCCESS';
+export const ADD_THEME_FAILURE = 'ADD_THEME_FAILURE';
