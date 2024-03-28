@@ -9,9 +9,9 @@ export default function SignUp() {
 
   const [formData, setFormData] = useState({});
 
-  const loading = useSelector(state => state.loading);
-  const errorMessage = useSelector(state => state.error);
-  const data = useSelector((state) => { return state.data });
+  const loading = useSelector(state => state.user.loading);
+  const errorMessage = useSelector(state => state.user.error);
+  const data = useSelector((state) => { return state.user.data });
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function SignUp() {
     try {
       dispatch(addSignUpStart(formData));
     } catch (error) {
-      console.log(error);
+      dispatch(addSignUpFailure(error.message));
     }
   }
 

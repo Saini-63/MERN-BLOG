@@ -22,6 +22,10 @@
 <=======  after that we switch from vite to simple react app beacuse in vite the jsx file not import in js so 
 			here we use redux-saga beacuse creatSlice is deprected ===========>
 
+#10)  here we add redux-persist in store its work is like as a localstorage it hold the value in localStorage .
+		redux-persist is a part of redux-toolkit
+
+
 
 
 
