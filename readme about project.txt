@@ -24,6 +24,9 @@
 
 #10)  here we add redux-persist in store its work is like as a localstorage it hold the value in localStorage .
 		redux-persist is a part of redux-toolkit
+<======== In React app when we access .env varaible we make variable as format 
+				REACT_APP_API_KEY = "apikey"
+				prefic REACT_APP is compulsory to add it ===========>
 
 
 
