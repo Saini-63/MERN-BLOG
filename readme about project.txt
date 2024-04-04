@@ -27,6 +27,8 @@
 <======== In React app when we access .env varaible we make variable as format 
 				REACT_APP_API_KEY = "apikey"
 				prefic REACT_APP is compulsory to add it ===========>
+#11) in react on DashProfile we use progress for uploading image we use one package is react-circular-progressbar
+
 
 
 

@@ -11,6 +11,7 @@ export default function OAuth() {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    // Initialize Firebase Authentication and get a reference to the service 
     const auth = getAuth(app);
 
     const handleGoogleClick = async () => {
